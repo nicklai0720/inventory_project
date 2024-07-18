@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Stock</title>
+</head>
+<body>
+    <h1>Manage Stock</h1>
+    <form method="post">
+        {% csrf_token %}
+        <select name="item_id">
+            {% for item in items %}
+                <option value="{{ item.id }}">{{ item }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="new_stock" min="0">
+        <button type="submit">Update Stock</button>
+    </form>
+</body>
+</html>
